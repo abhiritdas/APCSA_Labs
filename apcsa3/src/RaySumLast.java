@@ -3,18 +3,19 @@
 //Name -
 //Date -
 
-public class RaySumLast
-{
-	private int sum = 0;
-	private int i;
-	public int calcAdd(int[] ray)
-	{
-		for (i = 0; i < ray.length - 2; i++) {
-			sum += ray[i];
+public class RaySumLast {
+	public static int go(int[] ray) {
+		int count = 0;
+		int sum = 0;
+		for (int i = 0; i < ray.length; i++) {
+			if (ray[i] > ray[ray.length-1]) {
+				count++;
+				sum += ray[i];
+			}
 		}
-		if (sum < ray[i+1])
+		if (count == 0) {
 			return -1;
-		else {
+		} else {
 			return sum;
 		}
 	}
